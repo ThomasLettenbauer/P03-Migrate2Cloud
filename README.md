@@ -61,11 +61,33 @@ You will need to install the following locally:
 ## Monthly Cost Analysis
 Complete a month cost analysis of each Azure resource to give an estimate total cost using the table below:
 
-| Azure Resource | Service Tier | Monthly Cost |
-| ------------ | ------------ | ------------ |
-| *Azure Postgres Database* |     |              |
-| *Azure Service Bus*   |         |              |
-| ...                   |         |              |
+|	NAME	|	TYPE	|	LOCATION	|	Service Tier	|	Monthly Cost	|
+|	------------	|	------------	|	------------	|	------------	|	------------	|
+|	p03-migrate2cloud-web	|	App Service	|	East US	|	charged with App Service plan	|	 $-   	|
+|	ASP-p03migrate2cloudrg-b505	|	App Service plan	|	Central US	|	Consumption	|	 $-   	|
+|	p03-migrate-asp	|	App Service plan	|	East US	|	Free	|	 $-   	|
+|	p03-migrate2cloud-fa	|	Application Insights	|	East US	|	Basic	|	 $-   	|
+|	postgresmigrate-srv	|	Azure Database for PostgreSQL server	|	East US	|	Basic	|	 $21,30 	|
+|	p03-migrate2cloud-fa	|	Function App	|	Central US	|	charged with App Service plan	|	 $-   	|
+|	sendgrid	|	SaaS	|	Global	|	Third Party Tool	|	 $-   	|
+|	p03-migrate2cloud	|	Service Bus Namespace	|	East US	|	Basic	|	 $-   	|
+|	p03migratestorage	|	Storage account	|	East US	|	Basic	|	 $1,06 	|
+|	p03migratestoragefunc	|	Storage account	|	Central US	|	Basic	|	 $1,06 	|
+
+
+For the Test/Dev configuration we have now we can expect about $23 per month
+
 
 ## Architecture Explanation
-This is a placeholder section where you can provide an explanation and reasoning for your architecture selection for both the Azure Web App and Azure Function.
+ 
+ |Kind of App|Architecture Explanation|
+ |-----|-----|
+ |Web App|Quick/Easy Setup     |
+ | |Cheaper than Lift/Shift migration on VM |
+ | |Infrastructe is managed |
+ | |Less than 14GB RAM and less than 4 vCPUs are needed |
+ |Function App| Azure Service Bus Queue Trigger out of the box | 
+ | | Better developer productivity | 
+ | | Python supported | 
+ | | Full control over code | 
+
